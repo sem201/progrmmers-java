@@ -4,7 +4,7 @@ class Solution {
         
         for(int i=left;i<=right;i++){
             int cnt=0;
-            for(int k=1;k<i;k++){
+            for(int k=1;k<=i;k++){
                 if(i%k==0){
                     cnt++;
                 }
@@ -17,7 +17,7 @@ class Solution {
         }
         int answer=0;
         for(int number:numbers){
-            answer+=-number;
+            answer+=number;
         }
         
         return answer;
