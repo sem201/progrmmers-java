@@ -9,21 +9,21 @@ public class Main {
         int N = Integer.parseInt(br.readLine());
         int S = Integer.parseInt(br.readLine());
         String M = br.readLine();
-        int len = 2*N+1;
-
-        String P = "";
-        for(int i=0; i<N; i++){
-            P = P+"IO";
-        }
-        P = P+"I"; // Pn 생성
-
-        int cnt=0;
-
-        for(int i=0; i<S-len+1; i++){
-            if(M.substring(i,i+len).equals(P)){
+        int cnt =0, ans = 0;
+        for(int i=1; i<S-1;){
+            if(M.charAt(i) == 'O' && M.charAt(i+1)=='I'){
                 cnt++;
+                if(cnt==N){
+                    if(M.charAt(i-(cnt*2-1))=='I') ans++;
+                    cnt--;
+                }
+                i+=2;
+            }
+            else{
+                cnt=0;
+                i++;
             }
         }
-        System.out.println(cnt);
+        System.out.println(ans);
     }
 }
